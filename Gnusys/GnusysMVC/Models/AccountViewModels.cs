@@ -49,9 +49,9 @@ namespace GnusysMVC.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Login ID")]
+        [Display(Name = "Email")]
         [EmailAddress]
-        public string LoginID { get; set; }
+        public string Email { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -66,8 +66,8 @@ namespace GnusysMVC.Models
     {
         [Required]
         [EmailAddress]
-        [Display(Name = "Login ID")]
-        public string LoginID { get; set; }
+        [Display(Name = "Email")]
+        public string Email { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
