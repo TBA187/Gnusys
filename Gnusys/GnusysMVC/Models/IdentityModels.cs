@@ -31,5 +31,11 @@ namespace GnusysMVC.Models
         }
 
         public System.Data.Entity.DbSet<GnusysMVC.Models.Readings> Readings { get; set; }
+
+        public System.Data.Entity.DbSet<GnusysMVC.Models.Device> Devices { get; set; }
+
+        public System.Data.Entity.DbSet<GnusysMVC.Models.DeviceHistory> DeviceHistories { get; set; }
+
+        public System.Data.Entity.DbSet<GnusysMVC.Models.UserInfo> UserInfoes { get; set; }
     }
 }

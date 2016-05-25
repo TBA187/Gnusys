@@ -196,15 +196,22 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DeviceHistoriesController.cs" />
+    <Compile Include="Controllers\DevicesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ReadingsController.cs" />
+    <Compile Include="Controllers\UserInfoesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201605250851118_firstmigration.cs" />
     <Compile Include="Migrations\201605250851118_firstmigration.Designer.cs">
       <DependentUpon>201605250851118_firstmigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605250946043_andenmigration.cs" />
+    <Compile Include="Migrations\201605250946043_andenmigration.Designer.cs">
+      <DependentUpon>201605250946043_andenmigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -279,6 +286,21 @@
     <Content Include="Views\Readings\Details.cshtml" />
     <Content Include="Views\Readings\Edit.cshtml" />
     <Content Include="Views\Readings\Index.cshtml" />
+    <Content Include="Views\Devices\Create.cshtml" />
+    <Content Include="Views\Devices\Delete.cshtml" />
+    <Content Include="Views\Devices\Details.cshtml" />
+    <Content Include="Views\Devices\Edit.cshtml" />
+    <Content Include="Views\Devices\Index.cshtml" />
+    <Content Include="Views\DeviceHistories\Create.cshtml" />
+    <Content Include="Views\DeviceHistories\Delete.cshtml" />
+    <Content Include="Views\DeviceHistories\Details.cshtml" />
+    <Content Include="Views\DeviceHistories\Edit.cshtml" />
+    <Content Include="Views\DeviceHistories\Index.cshtml" />
+    <Content Include="Views\UserInfoes\Create.cshtml" />
+    <Content Include="Views\UserInfoes\Delete.cshtml" />
+    <Content Include="Views\UserInfoes\Details.cshtml" />
+    <Content Include="Views\UserInfoes\Edit.cshtml" />
+    <Content Include="Views\UserInfoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -294,6 +316,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201605250851118_firstmigration.resx">
       <DependentUpon>201605250851118_firstmigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605250946043_andenmigration.resx">
+      <DependentUpon>201605250946043_andenmigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

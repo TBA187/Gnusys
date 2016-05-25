@@ -14,4 +14,26 @@ namespace GnusysMVC.Models
         public int User { get; set; }
         public string Device { get; set; }
     }
+    public class Device
+    {
+        public string ID { get; set; }
+        public int User { get; set; }
+    }
+    public class UserInfo
+    {
+        public int ID { get; set; }
+        public string Fornavn { get; set; }
+        public string Efternavn { get; set; }
+        public int User { get; set; }
+        public string CPR { get; set; }
+        public int Accesslevel { get; set; }
+    }
+    public class DeviceHistory
+    {
+        public int ID { get; set; }
+        public string Device { get; set; }
+        public int User { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+    }
 }
