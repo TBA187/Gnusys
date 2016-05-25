@@ -29,5 +29,7 @@ namespace GnusysMVC.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<GnusysMVC.Models.Readings> Readings { get; set; }
     }
 }
