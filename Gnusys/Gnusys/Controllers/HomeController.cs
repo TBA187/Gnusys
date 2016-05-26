@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gnusys.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,39 @@ namespace Gnusys.Controllers
 {
     public class HomeController : Controller
     {
+        GnusysEFModel DB = new GnusysEFModel();
+
         // GET: Home
         public ActionResult Index()
         {
+            return View();
+        }
+
+        // GET: Home/Logud
+        public ActionResult Logud()
+        {
+            if (Session["user"] != null)
+            {
+                Session.Abandon();
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        // Login
+        [HttpPost]
+        public ActionResult Index(int cpr, string password)
+        {
+            var login = DB.Patient.FirstOrDefault(p => p.CPRno == cpr && p.Password == password);
+
+            if (login != null)
+            {
+                Session["user"] = login.Name + " " + login.SurName;
+            }
+            else
+            {
+                ViewData["Error"] = "Fejl, kunne ikke logge ind!";
+            }
             return View();
         }
 
@@ -30,16 +61,7 @@ namespace Gnusys.Controllers
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return View();
         }
 
         // GET: Home/Edit/5

@@ -28,6 +28,12 @@ namespace GnusysMVC.Models
         public string CPR { get; set; }
         public int Accesslevel { get; set; }
     }
+    public class UserLogin
+    {
+        public int ID { get; set; }
+        public string  CPR { get; set; }
+        public string Password { get; set; }
+    }
     public class DeviceHistory
     {
         public int ID { get; set; }
