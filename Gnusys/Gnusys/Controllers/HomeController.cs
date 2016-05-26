@@ -36,7 +36,7 @@ namespace Gnusys.Controllers
 
             if (login != null)
             {
-                Session["user"] = cpr;
+                Session["user"] = login.Name + " " + login.SurName;
             }
             else
             {
