@@ -1,0 +1,58 @@
+﻿@model GnusysMVC.Models.Readings
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Readings</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OxygenSaturation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OxygenSaturation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pulse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pulse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReadingTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReadingTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Device)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Device)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
