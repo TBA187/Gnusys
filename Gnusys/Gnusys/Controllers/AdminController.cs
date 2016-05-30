@@ -8,6 +8,10 @@ namespace Gnusys.Controllers
 {
     public class AdminController : Controller
     {
+        public ActionResult Login()
+        {
+            return View();
+        }
         // GET: Admin
         public ActionResult Index()
         {
