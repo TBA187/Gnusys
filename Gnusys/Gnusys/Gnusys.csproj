@@ -138,13 +138,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Device.cs" />
-    <Compile Include="Models\DeviceLine.cs" />
-    <Compile Include="Models\Employee.cs" />
-    <Compile Include="Models\EmployeePatients.cs" />
-    <Compile Include="Models\GnusysEFModel.cs" />
-    <Compile Include="Models\Patient.cs" />
-    <Compile Include="Models\Readings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Admin\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -172,8 +165,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Home\Logud.cshtml" />
-	  <Content Include="Views\Home\Index.cshtml" />
-	      <Content Include="Views\Readings\AddReadings.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Readings\AddReadings.cshtml" />
     <Content Include="Views\Readings\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -184,6 +177,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
