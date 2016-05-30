@@ -173,6 +173,8 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Home\Logud.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery.validate.min.JS" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.JS" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

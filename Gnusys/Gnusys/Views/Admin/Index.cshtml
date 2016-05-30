@@ -1,7 +1,149 @@
-﻿
-@{
-    ViewBag.Title = "Index";
+﻿@{ 
+    Gnusys.Models.Patient p = new Gnusys.Models.Patient();
 }
 
-<h2>Index</h2>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+<style type="text/css">
+    .auto-style1 {
+        width: 100%;
+    }
+
+    .auto-style2 {
+        height: 24px;                         
+    }
+
+    .auto-style3 {
+        width: 144px;
+        text-align: center;
+    }
+
+    .auto-style4 {
+        height: 24px;
+        width: 144px;
+        text-align: center;
+    }
+
+    .auto-style5 {
+        width: 130px;
+    }
+
+    .auto-style6 {
+        height: 24px;
+        width: 130px;
+    }
+
+    .auto-style7 {
+        width: 96px;
+    }
+
+    .auto-style8 {
+        width: 144px;
+        text-align: right;
+        height: 26px;
+    }
+
+    .auto-style9 {
+        width: 130px;
+        height: 26px;
+    }
+
+    .auto-style10 {
+        height: 26px;
+    }
+
+    .auto-style11 {
+        height: 24px;
+        width: 144px;
+        text-align: right;
+    }
+
+    .auto-style12 {
+        width: 144px;
+        text-align: right;
+    }
+</style>
+
+<form method="post" action="">
+    <table class="auto-style1">
+        <tr>
+            <td class="auto-style12">Fornavn</td>
+            <td class="auto-style5">
+                <input name="Name" type="text" id="Name" />
+            </td>
+            <td>
+                <span class="field-validation-valid text-danger" data-valmsg-for="p.Name" data-valmsg-replace="true"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style12">Efternavn</td>
+            <td class="auto-style5">
+                <input name="SurName" type="text" id="SurName" />
+            </td>
+            <td>
+                <span id="RequiredFieldValidator2" style="color:Red;visibility:hidden;">Efternavn SKAL angives</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style12">CPR-nr</td>
+            <td class="auto-style5">
+                <input name="CPRno" type="text" id="CPRno" />
+            </td>
+            <td>
+                <span id="RequiredFieldValidator3" style="color:Red;visibility:hidden;">CPR-nr SKAL angives</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style12">Adgangskode</td>
+            <td class="auto-style5">
+                <input name="Password" type="password" id="Password" />
+            </td>
+            <td>
+                <span id="RequiredFieldValidator4" style="color:Red;visibility:hidden;">Adgangskode SKAL angives</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style8">Gentag adgangskode</td>
+            <td class="auto-style9">
+                <input name="RPassword" type="password" id="RPassword" />
+            </td>
+            <td class="auto-style10">
+                <span id="RequiredFieldValidator5" style="color:Red;visibility:hidden;">Adgangskode SKAL gentages</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style11">Vælg niveau</td>
+            <td class="auto-style6">
+                <select name="DDLLevel" id="DDLLevel" style="height:16px;width:128px;">
+                    <option value="Klinikker">Klinikker</option>
+                    <option value="Patient">Patient</option>
+
+                </select>
+            </td>
+            <td class="auto-style2">
+                <span id="RequiredFieldValidator6" style="color:Red;visibility:hidden;">Niveau SKAL vælges</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style4">&nbsp;</td>
+            <td class="auto-style6">&nbsp;</td>
+            <td class="auto-style2">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style3">
+                <input type="submit" name="Back" value="Tilbage" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;Back&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="Back" style="width:105px;" />
+            </td>
+            <td class="auto-style5">
+                <input type="submit" name="ConfirmRegistration" value="Bekræft registrering" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ConfirmRegistration&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ConfirmRegistration" style="width:127px;" />
+            </td>
+            <td>
+                <input id="Reset1" class="auto-style7" type="reset" value="Nulstil" />
+            </td>
+        </tr>
+    </table>
+</form>
+
 
