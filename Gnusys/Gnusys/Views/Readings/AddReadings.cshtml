@@ -5,11 +5,20 @@
 
 <h2>Manuel indtastning</h2>
 
-<form>
-    <label for="OxygenSaturation">Iltmætning: </label>
-    <input name="OxygenSaturation_input" /><br />
-    <label for="Pulse">Puls: </label>
-    <input name="Pulse_input" /> <br />
-    <button name="AddReading" ></button>
-    
+<form name="ManuelIndtast" method="post" >
+    <table>
+        <tr>
+            <td> <label for="OxygenSaturation">Iltmætning: </label></td>
+            <td><input name="OxygenSaturation_input" /></td>
+        </tr>
+        <tr>
+            <td>  <label for="Pulse">Puls: </label>          </td>
+            <td>   <input name="Pulse_input" /> </td>
+        </tr>
+        <tr><td><input name="AddReadings" formmethod="post" type="submit"/></td></tr>
+    </table>
+
+
+
 </form>
+
