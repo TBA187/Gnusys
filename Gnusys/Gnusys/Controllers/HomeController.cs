@@ -10,7 +10,7 @@ namespace Gnusys.Controllers
 {
     public class HomeController : Controller
     {
-        GnusysEFModel DB = new GnusysEFModel();
+        GnysusEFModel DB = new GnysusEFModel();
 
         // GET: Home
         public ActionResult Index()

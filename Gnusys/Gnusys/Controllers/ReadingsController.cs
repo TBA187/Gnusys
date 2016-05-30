@@ -1,15 +1,12 @@
 ﻿using Gnusys.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Gnusys.Controllers
 {
     public class ReadingsController : Controller
     {
-        GnusysEFModel DB = new GnusysEFModel();
+        GnysusEFModel DB = new GnysusEFModel();
         // GET: Readings
         public ActionResult Index()
         {

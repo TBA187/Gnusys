@@ -142,7 +142,7 @@
     <Compile Include="Models\DeviceLine.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\EmployeePatients.cs" />
-    <Compile Include="Models\GnusysEFModel.cs" />
+    <Compile Include="Models\GnysusEFModel.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\Readings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
