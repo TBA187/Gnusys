@@ -1,11 +1,6 @@
 ﻿@{
-    Gnusys.Models.Test p = new Gnusys.Models.Test();
+    Gnusys.Models.Patient p = new Gnusys.Models.Patient();
 }
-
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-
 
 <style type="text/css">
     .auto-style1 {
@@ -72,10 +67,10 @@
         <tr>
             <td class="auto-style12">Fornavn</td>
             <td class="auto-style5">
-                <input name="Name" type="text" id="Name" />
+                <input class="text-box single-line" data-val="true" data-val-required="Fornavn skal udfyldes" id="b_Name" name="b.Name" type="text">
             </td>
             <td>
-                <span class="field-validation-valid text-danger" data-valmsg-for="p.Name" data-valmsg-replace="true"></span>
+                <span class="field-validation-valid text-danger" data-valmsg-for="b.Name" data-valmsg-replace="true"></span>
             </td>
         </tr>
         <tr>
@@ -146,4 +141,6 @@
     </table>
 </form>
 
-
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

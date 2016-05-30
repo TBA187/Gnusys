@@ -18,8 +18,7 @@ namespace Gnusys.Models
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int PatientID { get; set; }
-        
-        [Required(ErrorMessage = "Fornavn skal udfyldes!")]
+
         public string Name { get; set; }
 
         [Required]
