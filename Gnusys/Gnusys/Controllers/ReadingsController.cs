@@ -13,6 +13,9 @@ namespace Gnusys.Controllers
         {
             return View();
         }
-
+        public ActionResult AddReadings()
+        {
+            return View();
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace GnusysMVC.Controllers
         // GET: Readings
         public ActionResult Index()
         {
-            return View(db.Readings.ToList());
+            return View();
         }
 
         // GET: Readings/Details/5
