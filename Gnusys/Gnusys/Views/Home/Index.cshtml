@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@if (ViewData["Error"] != null)
+{
+    <p><strong>Fejl:</strong> @ViewData["Error"].ToString()</p>
+}
+
+@if (Session["user"] != null)
+{
+    var SessionUser = Session["user"].ToString();
+
+    <p>Du er nu logget ind! <strong>Velkommen "@SessionUser"</strong></p>
+
+    @Html.ActionLink("Log ud", "Logud")
+
+}
+else
+{
+    <form name="employeeLogin" action="" method="POST">
+        <table>
+            <tr>
+                <td colspan="2"><strong>Log ind</strong></td>
+            </tr>
+            <tr>
+                <td><label for="cpr">CPR. nr.</label></td>
+            </tr>
+            <tr>
+                <td><input name="cpr" type="text" /></td>
+            </tr>
+            <tr>
+                <td><label for="password">Password</label></td>
+            </tr>
+            <tr>
+                <td><input name="password" type="password" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input name="login" type="submit" value="Log ind" /></td>
+            </tr>
+        </table>
+    </form>
+}
