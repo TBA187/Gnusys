@@ -9,26 +9,33 @@ namespace Gnusys.Models
     [Table("Patient")]
     public partial class Patient
     {
-        [Key]
-        [Column(Order = 0)]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Patient()
+        {
+            Device = new HashSet<Device>();
+            EmployeePatients = new HashSet<EmployeePatients>();
+        }
+
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int PatientID { get; set; }
-
-        [Key]
-        [Column(Order = 1)]
+        
+        [Required(ErrorMessage = "Fornavn skal udfyldes!")]
         public string Name { get; set; }
 
-        [Key]
-        [Column(Order = 2)]
+        [Required]
+        [StringLength(1)]
         public string SurName { get; set; }
 
-        [Key]
-        [Column(Order = 3)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int CPRno { get; set; }
 
-        [Key]
-        [Column(Order = 4)]
+        [Required]
+        [StringLength(1)]
         public string Password { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Device> Device { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EmployeePatients> EmployeePatients { get; set; }
     }
 }
