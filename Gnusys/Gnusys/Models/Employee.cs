@@ -9,26 +9,26 @@ namespace Gnusys.Models
     [Table("Employee")]
     public partial class Employee
     {
-        [Key]
-        [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Employee()
+        {
+            EmployeePatients = new HashSet<EmployeePatients>();
+        }
+
         public int ID { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
+        [Required]
         public string FirstName { get; set; }
 
-        [Key]
-        [Column(Order = 2)]
+        [Required]
         public string SurName { get; set; }
 
-        [Key]
-        [Column(Order = 3)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int CPRno { get; set; }
 
-        [Key]
-        [Column(Order = 4)]
+        [Required]
         public string Password { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EmployeePatients> EmployeePatients { get; set; }
     }
 }

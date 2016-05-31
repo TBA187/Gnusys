@@ -4,4 +4,14 @@
 }
 
 <h2>Index</h2>
+@if(Session["user"] != null)
+{
+@Html.ActionLink("Indtast Manuelt", "AddReadings", "Readings", new { area = "" }, new { @class = "navbar-brand" })
+}
+else
+{
+    <h3>Please log in</h3>
+    @Html.ActionLink("Tilbage Til forsiden", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+}
+<br />
 

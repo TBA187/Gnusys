@@ -144,7 +144,7 @@
     <Compile Include="Models\DeviceLine.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\EmployeePatients.cs" />
-    <Compile Include="Models\GnusysEFModel.cs" />
+    <Compile Include="Models\GnysusEFModel.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\Readings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -178,6 +178,7 @@
     <Content Include="Views\Readings\AddReadings.cshtml" />
     <Content Include="Views\Readings\Index.cshtml" />
     <Content Include="Views\Readings\Overview.cshtml" />
+    <Content Include="Views\Admin\ConfirmRegistration.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

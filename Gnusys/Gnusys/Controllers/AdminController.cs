@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Gnusys.Models;
 
 namespace Gnusys.Controllers
 {
     public class AdminController : Controller
     {
+        GnysusEFModel DB = new GnysusEFModel();
         public ActionResult Login()
         {
             return View();
@@ -32,15 +34,31 @@ namespace Gnusys.Controllers
 
         // POST: Admin/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Index(string Name, string SurName, string CPRno, string Password, string RPassword, string DDLLevel)
         {
-            try
+            if (Password == RPassword)
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                string Hash = Password;
+                if (DDLLevel == "Klinikker")
+                {
+                    Employee E = new Employee { FirstName = Name, SurName = SurName, CPRno = int.Parse(CPRno), Password = Hash };
+                    DB.Employee.Add(E);
+                    DB.SaveChanges();
+                    return View();
+                }
+                else if (DDLLevel == "Patient")
+                {
+                    Patient P = new Patient { ForName = Name, SurName = SurName, CPRno = int.Parse(CPRno), Password = Hash };
+                    DB.Patient.Add(P);
+                    DB.SaveChanges();
+                    return View();
+                }
+                else
+                {
+                    return View();
+                }
             }
-            catch
+            else
             {
                 return View();
             }

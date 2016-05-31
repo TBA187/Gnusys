@@ -10,7 +10,7 @@ namespace Gnusys.Controllers
 {
     public class HomeController : Controller
     {
-        GnusysEFModel DB = new GnusysEFModel();
+        GnysusEFModel DB = new GnysusEFModel();
 
         // GET: Home
         public ActionResult Index()
@@ -33,12 +33,13 @@ namespace Gnusys.Controllers
         [HttpPost]
         public ActionResult Index(int cpr, string password)
         {
-            string Hash = HashPassword(password);
+            string Hash = password;
+          //  string Hash = HashPassword(password);
             var login = DB.Patient.FirstOrDefault(p => p.CPRno == cpr && p.Password == Hash);
 
             if (login != null)
             {
-                Session["user"] = login.Name + " " + login.SurName;
+                Session["user"] = login.ID;
             }
             else
             {
