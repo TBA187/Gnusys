@@ -19,11 +19,11 @@ namespace Gnusys.Controllers
         {
             return View();
         }
-        public ActionResult Overview()
-        {
-            return DB.EmployeePatients.ToList(p=>p.EmployeeID);
+        //public ActionResult Overview()
+        //{
+        //    return DB.EmployeePatients.ToList(p=>p.EmployeeID);
 
-        }
+        //}
         [HttpPost]
         public ActionResult AddReadings(int OxygenSaturation_input, int Pulse_input)
         {
