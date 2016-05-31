@@ -11,6 +11,7 @@ namespace Gnusys.Models
     {
         [Key]
         [Column(Order = 0)]
+        [StringLength(20)]
         public string DeviceID { get; set; }
 
         [Key]
@@ -23,9 +24,10 @@ namespace Gnusys.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ReadingID { get; set; }
 
-        [Key]
-        [Column(Order = 3)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int pk { get; set; }
+        public virtual Device Device { get; set; }
+
+        public virtual Patient Patient { get; set; }
+
+        public virtual Readings Readings { get; set; }
     }
 }

@@ -9,7 +9,7 @@ namespace Gnusys.Controllers
 {
     public class ReadingsController : Controller
     {
-        GnusysEFModel DB = new GnusysEFModel();
+        GnysusEFModel DB = new GnysusEFModel();
         // GET: Readings
         public ActionResult Index()
         {
@@ -22,6 +22,10 @@ namespace Gnusys.Controllers
         [HttpPost]
         public ActionResult AddReadings(int OxygenSaturation_input, int Pulse_input)
         {
+            Readings r = new Readings() { Pulse = Pulse_input, OxygenSaturation = OxygenSaturation_input, Date = DateTime.Now };
+            DeviceLine dl = new DeviceLine();
+            DB.Readings.Add(r);
+            DB.SaveChanges();
             return View();
         }
     }
