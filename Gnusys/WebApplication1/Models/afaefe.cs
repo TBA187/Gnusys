@@ -1,16 +1,17 @@
-namespace Gnusys.Models
+namespace WebApplication1.Models
 {
     using System;
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class GnysusEFModel : DbContext
+    public partial class afaefe : DbContext
     {
-        public GnysusEFModel()
-            : base("name=GnysusEFModel")
+        public afaefe()
+            : base("name=afaefe")
         {
         }
+
         public virtual DbSet<Device> Device { get; set; }
         public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<EmployeePatients> EmployeePatients { get; set; }

@@ -178,6 +178,7 @@
     <Content Include="Views\Readings\AddReadings.cshtml" />
     <Content Include="Views\Readings\Index.cshtml" />
     <Content Include="Views\Readings\Overview.cshtml" />
+    <Content Include="Views\Admin\ConfirmRegistration.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

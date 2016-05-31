@@ -1,4 +1,4 @@
-namespace Gnusys.Models
+namespace WebApplication1.Models
 {
     using System;
     using System.Collections.Generic;
@@ -9,7 +9,6 @@ namespace Gnusys.Models
     [Table("Device")]
     public partial class Device
     {
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Device()
         {

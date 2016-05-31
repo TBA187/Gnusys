@@ -13,8 +13,8 @@ namespace Gnusys.Models
         public Patient()
         {
             Device = new HashSet<Device>();
+            EmployeePatients = new HashSet<EmployeePatients>();
             DeviceLine = new HashSet<DeviceLine>();
-            Employee = new HashSet<Employee>();
         }
 
         public int ID { get; set; }
@@ -33,9 +33,9 @@ namespace Gnusys.Models
         public virtual ICollection<Device> Device { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DeviceLine> DeviceLine { get; set; }
+        public virtual ICollection<EmployeePatients> EmployeePatients { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Employee> Employee { get; set; }
+        public virtual ICollection<DeviceLine> DeviceLine { get; set; }
     }
 }

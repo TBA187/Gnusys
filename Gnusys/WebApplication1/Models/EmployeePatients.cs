@@ -1,6 +1,5 @@
-namespace Gnusys
+namespace WebApplication1.Models
 {
-    using Models;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -9,7 +8,6 @@ namespace Gnusys
 
     public partial class EmployeePatients
     {
-
         public int EmployeeID { get; set; }
 
         public int PatientID { get; set; }
@@ -21,5 +19,4 @@ namespace Gnusys
 
         public virtual Patient Patient { get; set; }
     }
-
 }
