@@ -21,7 +21,8 @@ namespace Gnusys.Controllers
         }
         public ActionResult Overview()
         {
-            return View();
+            return DB.EmployeePatients.ToList(p=>p.EmployeeID);
+
         }
         [HttpPost]
         public ActionResult AddReadings(int OxygenSaturation_input, int Pulse_input)
