@@ -19,6 +19,10 @@ namespace Gnusys.Controllers
         {
             return View();
         }
+        public ActionResult Overview()
+        {
+            return View();
+        }
         [HttpPost]
         public ActionResult AddReadings(int OxygenSaturation_input, int Pulse_input)
         {
