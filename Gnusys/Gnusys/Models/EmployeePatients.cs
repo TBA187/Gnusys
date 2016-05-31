@@ -8,7 +8,7 @@ namespace Gnusys
 
     public partial class EmployeePatients
     {
-    {
+    
         public int EmployeeID { get; set; }
 
         public int PatientID { get; set; }
@@ -16,5 +16,5 @@ namespace Gnusys
         [Key]
         public int pk { get; set; }
     }
-}
+
 }
