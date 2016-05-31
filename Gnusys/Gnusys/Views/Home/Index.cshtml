@@ -7,11 +7,13 @@
     <p><strong>Fejl:</strong> @ViewData["Error"].ToString()</p>
 }
 
-@if (Session["user"] != null)
+@if (Session["ID"] != null)
 {
-    var SessionUser = Session["user"].ToString();
+    var SessionType = Session["Type"].ToString();
+    var SessionName = Session["FirstName"].ToString();
 
-    <p>Du er nu logget ind! <strong>Velkommen "@SessionUser"</strong></p>
+
+    <p>Du er nu logget ind som @SessionType! <strong>Velkommen "@SessionName"</strong></p>
 
     @Html.ActionLink("Log ud", "Logud")
 
