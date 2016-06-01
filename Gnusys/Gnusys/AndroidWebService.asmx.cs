@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Gnusys.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Script.Services;
 using System.Web.Services;
+using System.Web.Mvc;
+using System.Security.Cryptography;
 
 namespace Gnusys
 {
@@ -15,22 +18,30 @@ namespace Gnusys
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
     [System.Web.Script.Services.ScriptService]
+
     public class AndroidWebService : System.Web.Services.WebService
     {
+        GnysusEFModel DB = new GnysusEFModel();
 
         [WebMethod]
         [ScriptMethod(UseHttpGet=true)]
-        public string AuthenticateLogin(string cpr, string password)
+        public string AuthenticateLogin(int cpr, string password)
         {
-            if(cpr == "111" && password=="admin")
+            
+            string Hash = password;
+            //  string Hash = HashPassword(password);
+
+            var Patientlogin = DB.Patient.FirstOrDefault(p => p.CPRno == cpr && p.Password == Hash);
+
+            if (Patientlogin != null)
             {
                 return "ok";
             }
             else
             {
-                return "fejl";
+                return "Fejl";
             }
-            
+                          
         }
 
         [WebMethod]
