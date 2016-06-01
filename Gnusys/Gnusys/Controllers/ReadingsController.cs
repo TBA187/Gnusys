@@ -21,7 +21,7 @@ namespace Gnusys.Controllers
         }
         public ActionResult Overview()
         {
-            return DB.EmployeePatients.ToList(p=>p.EmployeeID);
+            return DB.EmployeePatients.ToList(p => p.EmployeeID == FirstName);
 
         }
         [HttpPost]
