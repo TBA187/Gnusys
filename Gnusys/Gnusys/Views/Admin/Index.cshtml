@@ -1,7 +1,4 @@
-﻿@{
-    Gnusys.Models.Patient p = new Gnusys.Models.Patient();
-}
-
+﻿
 <style type="text/css">
     .auto-style1 {
         width: 100%;
@@ -67,59 +64,61 @@
         <tr>
             <td class="auto-style12">Fornavn</td>
             <td class="auto-style5">
-                <input class="text-box single-line" data-val="true" data-val-required="Fornavn skal udfyldes" id="b_Name" name="b.Name" type="text">
+                <input class="text-box single-line" data-val="true" data-val-required="Fornavn skal udfyldes" id="Name" name="Name" type="text">
             </td>
             <td>
-                <span class="field-validation-valid text-danger" data-valmsg-for="b.Name" data-valmsg-replace="true"></span>
+                <span class="field-validation-valid text-danger" data-valmsg-for="Name" data-valmsg-replace="true"></span>
             </td>
         </tr>
         <tr>
             <td class="auto-style12">Efternavn</td>
             <td class="auto-style5">
-                <input name="SurName" type="text" id="SurName" />
+                <input class="text-box single-line" data-val="true" data-val-required="Efternavn skal udfyldes" id="SurName" name="SurName" type="text">
             </td>
             <td>
-                <span id="RequiredFieldValidator2" style="color:Red;visibility:hidden;">Efternavn SKAL angives</span>
+                <span class="field-validation-valid text-danger" data-valmsg-for="SurName" data-valmsg-replace="true"></span>
             </td>
         </tr>
         <tr>
             <td class="auto-style12">CPR-nr</td>
             <td class="auto-style5">
-                <input name="CPRno" type="text" id="CPRno" />
+                <input class="text-box single-line" data-val="true" data-val-required="CPR-nr skal udfyldes" id="CPRno" name="CPRno" type="text">
             </td>
             <td>
-                <span id="RequiredFieldValidator3" style="color:Red;visibility:hidden;">CPR-nr SKAL angives</span>
+                <span class="field-validation-valid text-danger" data-valmsg-for="CPRno" data-valmsg-replace="true"></span>
             </td>
         </tr>
         <tr>
             <td class="auto-style12">Adgangskode</td>
             <td class="auto-style5">
-                <input name="Password" type="password" id="Password" />
+                <input class="text-box single-line" data-val="true" data-val-required="Adgangskode skal udfyldes" id="Password" name="Password" type="text">
             </td>
             <td>
-                <span id="RequiredFieldValidator4" style="color:Red;visibility:hidden;">Adgangskode SKAL angives</span>
+                <span class="field-validation-valid text-danger" data-valmsg-for="Password" data-valmsg-replace="true"></span>
             </td>
         </tr>
         <tr>
             <td class="auto-style8">Gentag adgangskode</td>
             <td class="auto-style9">
-                <input name="RPassword" type="password" id="RPassword" />
+                <input class="text-box single-line" data-val="true" data-val-required="Adgangskode skal gentages" id="RPassword" name="RPassword" type="text">
             </td>
             <td class="auto-style10">
-                <span id="RequiredFieldValidator5" style="color:Red;visibility:hidden;">Adgangskode SKAL gentages</span>
+                <span class="field-validation-valid text-danger" data-valmsg-for="RPassword" data-valmsg-replace="true"></span>
             </td>
         </tr>
         <tr>
             <td class="auto-style11">Vælg niveau</td>
             <td class="auto-style6">
-                <select name="DDLLevel" id="DDLLevel" style="height:16px;width:128px;">
+                <select name="DDLLevel" id="DDLLevel" class="text-box single-line" data-val="true" data-val-required="Niveauet skal vælges" style="height:24px;width:174px;">
+                    <option></option>
+
                     <option value="Klinikker">Klinikker</option>
                     <option value="Patient">Patient</option>
 
                 </select>
             </td>
             <td class="auto-style2">
-                <span id="RequiredFieldValidator6" style="color:Red;visibility:hidden;">Niveau SKAL vælges</span>
+                <span class="field-validation-valid text-danger" data-valmsg-for="DDLLevel" data-valmsg-replace="true"></span>
             </td>
         </tr>
         <tr>
@@ -129,10 +128,10 @@
         </tr>
         <tr>
             <td class="auto-style3">
-                <input type="submit" name="Back" value="Tilbage" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;Back&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="Back" style="width:105px;" />
+                <input type="submit" name="Back" value="Tilbage" id="Back" style="width:105px;" />
             </td>
             <td class="auto-style5">
-                <input type="submit" name="ConfirmRegistration" value="Bekræft registrering" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ConfirmRegistration&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ConfirmRegistration" style="width:127px;" />
+                <input type="submit" name="ConfirmRegistration" value="Bekræft registrering" id="ConfirmRegistration" style="height:27px;width:157px;" />
             </td>
             <td>
                 <input id="Reset1" class="auto-style7" type="reset" value="Nulstil" />

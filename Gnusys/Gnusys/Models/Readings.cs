@@ -8,22 +8,21 @@ namespace Gnusys.Models
 
     public partial class Readings
     {
-        [Key]
-        [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Readings()
+        {
+            DeviceLine = new HashSet<DeviceLine>();
+        }
+
         public int Pulse { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int OxygenSaturation { get; set; }
 
-        [Key]
-        [Column(Order = 2)]
         public DateTime Date { get; set; }
 
-        [Key]
-        [Column(Order = 3)]
         public int ID { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DeviceLine> DeviceLine { get; set; }
     }
 }

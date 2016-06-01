@@ -10,7 +10,7 @@ namespace Gnusys.Controllers
 {
     public class HomeController : Controller
     {
-        GnusysEFModel DB = new GnusysEFModel();
+        GnysusEFModel DB = new GnysusEFModel();
 
         // GET: Home
         public ActionResult Index()
@@ -21,7 +21,7 @@ namespace Gnusys.Controllers
         // GET: Home/Logud
         public ActionResult Logud()
         {
-            if (Session["user"] != null)
+            if (Session["ID"] != null)
             {
                 Session.Abandon();
             }
@@ -33,12 +33,29 @@ namespace Gnusys.Controllers
         [HttpPost]
         public ActionResult Index(int cpr, string password)
         {
-            string Hash = HashPassword(password);
-            var login = DB.Patient.FirstOrDefault(p => p.CPRno == cpr && p.Password == Hash);
+            string Hash = password;
+            //  string Hash = HashPassword(password);
 
-            if (login != null)
+              var  Patientlogin = DB.Patient.FirstOrDefault(p => p.CPRno == cpr && p.Password == Hash);
+
+              var  Employeelogin = DB.Employee.FirstOrDefault(p => p.CPRno == cpr && p.Password == Hash);
+
+          
+            if (Patientlogin != null)
             {
-                Session["user"] = login.Name + " " + login.SurName;
+                Session["ID"] = Patientlogin.ID.ToString();
+                Session["FirstName"] = Patientlogin.ForName.ToString();
+                Session["SurName"] = Patientlogin.SurName.ToString();
+                Session["CPRno"] = Patientlogin.CPRno.ToString();
+                Session["Type"] = "Patient";
+            }
+            else if(Employeelogin != null)
+            {
+                Session["ID"] = Employeelogin.ID.ToString();
+                Session["FirstName"] = Employeelogin.FirstName.ToString();
+                Session["SurName"] = Employeelogin.SurName.ToString();
+                Session["CPRno"] = Employeelogin.CPRno.ToString();
+                Session["Type"] = "Employee";
             }
             else
             {

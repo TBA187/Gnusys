@@ -14,21 +14,19 @@ namespace Gnusys.Models
         {
             Device = new HashSet<Device>();
             EmployeePatients = new HashSet<EmployeePatients>();
+            DeviceLine = new HashSet<DeviceLine>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int PatientID { get; set; }
-
-        public string Name { get; set; }
+        public int ID { get; set; }
 
         [Required]
-        [StringLength(1)]
+        public string ForName { get; set; }
+
         public string SurName { get; set; }
 
         public int CPRno { get; set; }
 
         [Required]
-        [StringLength(1)]
         public string Password { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -36,5 +34,8 @@ namespace Gnusys.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EmployeePatients> EmployeePatients { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DeviceLine> DeviceLine { get; set; }
     }
 }

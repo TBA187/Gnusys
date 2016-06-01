@@ -9,14 +9,21 @@ namespace Gnusys.Models
     [Table("Device")]
     public partial class Device
     {
-        [Key]
-        [Column(Order = 0)]
-        [StringLength(1)]
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Device()
+        {
+            DeviceLine = new HashSet<DeviceLine>();
+        }
+
+        [StringLength(20)]
         public string ID { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int PatientID { get; set; }
+        public int? PatientID { get; set; }
+
+        public virtual Patient Patient { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DeviceLine> DeviceLine { get; set; }
     }
 }
