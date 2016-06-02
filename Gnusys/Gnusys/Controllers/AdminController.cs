@@ -31,6 +31,17 @@ namespace Gnusys.Controllers
         {
             return View();
         }
+
+        public ActionResult AddPatient()
+        {
+            return View();
+        }
+
+        public ActionResult ShowPatients()
+        {
+            return View();
+        }
+
         [HttpGet]
         public ActionResult ConnectDevice()
         {
@@ -41,21 +52,16 @@ namespace Gnusys.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult ConnectDevice(string DeviceSelection, int PatientSelection)
+        public ActionResult ConnectDevice(string DeviceSelection, string PatientSelection)
         {
-            Device getdevice = DB.Device.FirstOrDefault(p => p.ID == DeviceSelection);
-            getdevice.PatientID = PatientSelection;
-            DB.Entry(getdevice).State = System.Data.Entity.EntityState.Modified;
+            Device d = new Device() { ID = DeviceSelection, PatientID = int.Parse(PatientSelection) };
+            DB.Device.Add(d);
             DB.SaveChanges();
-            var Devices = DB.Set<Device>();
-            var Patients = DB.Set<Patient>();
-            ViewBag.Devices = Devices.ToList();
-            ViewBag.Patients = Patients.ToList();
             return View();
         }
         // POST: Admin/Create
         [HttpPost]
-        public ActionResult Index(string Name, string SurName, string CPRno, string Password, string RPassword, string DDLLevel)
+        public ActionResult AddPatient(string Name, string SurName, string CPRno, string Password, string RPassword, string DDLLevel)
         {
             if (Password == RPassword)
             {
@@ -128,5 +134,6 @@ namespace Gnusys.Controllers
                 return View();
             }
         }
+
     }
 }
