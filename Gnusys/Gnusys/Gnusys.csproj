@@ -124,6 +124,8 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.JS" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.JS" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
@@ -143,7 +145,6 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReadingsController.cs" />
-    <Compile Include="Controllers\WebAPIController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -187,6 +188,8 @@
     <Content Include="Views\Readings\Overview.cshtml" />
     <Content Include="Views\Admin\ConfirmRegistration.cshtml" />
     <Content Include="Views\Admin\ConnectDevice.cshtml" />
+    <Content Include="Views\Admin\AddPatient.cshtml" />
+    <Content Include="Views\Admin\ShowPatients.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>

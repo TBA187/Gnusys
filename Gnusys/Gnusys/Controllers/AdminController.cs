@@ -31,6 +31,17 @@ namespace Gnusys.Controllers
         {
             return View();
         }
+
+        public ActionResult AddPatient()
+        {
+            return View();
+        }
+
+        public ActionResult ShowPatients()
+        {
+            return View();
+        }
+
         [HttpGet]
         public ActionResult ConnectDevice()
         {
@@ -45,7 +56,7 @@ namespace Gnusys.Controllers
         {
             Device d = new Device() { ID = DeviceSelection, PatientID = int.Parse(PatientSelection) };
             DB.Device.Add(d);
-            DB.SaveChanges();            
+            DB.SaveChanges();
             return View();
         }
         // POST: Admin/Create
@@ -123,5 +134,6 @@ namespace Gnusys.Controllers
                 return View();
             }
         }
+
     }
 }
