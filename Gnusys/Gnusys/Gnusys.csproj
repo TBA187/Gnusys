@@ -148,6 +148,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\AdvProg.cs" />
+    <Compile Include="Helpers\Alert.cs" />
     <Compile Include="Models\Device.cs" />
     <Compile Include="Models\DeviceLine.cs" />
     <Compile Include="Models\Employee.cs" />
@@ -200,7 +202,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
