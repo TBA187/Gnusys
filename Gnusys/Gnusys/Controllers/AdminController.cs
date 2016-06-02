@@ -65,30 +65,40 @@ namespace Gnusys.Controllers
         {
             if (Password == RPassword)
             {
-                string Hash = Password;
-                if (DDLLevel == "Klinikker")
-                {
-                    Employee E = new Employee { FirstName = Name, SurName = SurName, CPRno = int.Parse(CPRno), Password = Hash };
-                    DB.Employee.Add(E);
-                    DB.SaveChanges();
-                    return View();
+                try {
+                    string Hash = Password;
+                    if (DDLLevel == "Klinikker")
+                    {
+                        Employee E = new Employee { FirstName = Name, SurName = SurName, CPRno = int.Parse(CPRno), Password = Hash };
+                        DB.Employee.Add(E);
+                        DB.SaveChanges();
+                        Response.Write("<script>alert('Klinikeren er tilføjet');</script>");
+                        return View();
+                    }
+                    else if (DDLLevel == "Patient")
+                    {
+                        Patient P = new Patient { ForName = Name, SurName = SurName, CPRno = int.Parse(CPRno), Password = Hash };
+                        DB.Patient.Add(P);
+                        DB.SaveChanges();
+                        Response.Write("<script>alert('Patient er tilføjet');</script>");
+                        return View();
+                    }
+                    else
+                    {
+                        return View();
+                    }
                 }
-                else if (DDLLevel == "Patient")
+                catch
                 {
-                    Patient P = new Patient { ForName = Name, SurName = SurName, CPRno = int.Parse(CPRno), Password = Hash };
-                    DB.Patient.Add(P);
-                    DB.SaveChanges();
-                    return View();
-                }
-                else
-                {
-                    return View();
+                    Response.Write("<script>alert('Fejl, tjek om alle felter er udfyldt korrekt');</script>");
                 }
             }
             else
             {
                 return View();
             }
+            return View();
+
         }
 
         // GET: Admin/Edit/5
