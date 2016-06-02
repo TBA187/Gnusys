@@ -41,11 +41,16 @@ namespace Gnusys.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult ConnectDevice(string DeviceSelection, string PatientSelection)
+        public ActionResult ConnectDevice(string DeviceSelection, int PatientSelection)
         {
-            Device d = new Device() { ID = DeviceSelection, PatientID = int.Parse(PatientSelection) };
-            DB.Device.Add(d);
-            DB.SaveChanges();            
+            Device getdevice = DB.Device.FirstOrDefault(p => p.ID == DeviceSelection);
+            getdevice.PatientID = PatientSelection;
+            DB.Entry(getdevice).State = System.Data.Entity.EntityState.Modified;
+            DB.SaveChanges();
+            var Devices = DB.Set<Device>();
+            var Patients = DB.Set<Patient>();
+            ViewBag.Devices = Devices.ToList();
+            ViewBag.Patients = Patients.ToList();
             return View();
         }
         // POST: Admin/Create
