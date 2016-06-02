@@ -61,7 +61,7 @@ namespace Gnusys.Controllers
         }
         // POST: Admin/Create
         [HttpPost]
-        public ActionResult Index(string Name, string SurName, string CPRno, string Password, string RPassword, string DDLLevel)
+        public ActionResult AddPatient(string Name, string SurName, string CPRno, string Password, string RPassword, string DDLLevel)
         {
             if (Password == RPassword)
             {
