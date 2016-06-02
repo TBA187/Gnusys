@@ -15,7 +15,7 @@ namespace Gnusys.Helpers
             double delta = reading.OxygenSaturation / GetAverage(patientId);
             if(delta > 0.90 || delta < 1.10)
             {
-                Alert.SendAlert();
+                Alert.SendAlert(reading.OxygenSaturation, delta);
             }
         }
         private int GetAverage(int patientId)
