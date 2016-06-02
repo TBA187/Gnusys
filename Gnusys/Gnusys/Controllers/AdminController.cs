@@ -52,11 +52,11 @@ namespace Gnusys.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult ConnectDevice(string DeviceSelection, string PatientSelection)
+        public ActionResult ConnectDevice(string DeviceSelection, int PatientSelection)
         {
             Device d = new Device() { ID = DeviceSelection, PatientID = int.Parse(PatientSelection) };
             DB.Device.Add(d);
-            DB.SaveChanges();
+            DB.SaveChanges();            
             return View();
         }
         // POST: Admin/Create
