@@ -22,7 +22,7 @@ namespace Gnusys.Helpers
                 mail.Body = "En Patient har målt en stor ændring i iltmæætningen. \n Gemmemsnit fra de sidste 20 målinger: " + average + "\n Måling: " + reading + "\n Det er en ændring på " + delta + " procent.";
 
                 SmtpServer.Port = 587;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("systemeksamensprojekt", "Gnusys");
+                SmtpServer.Credentials = new System.Net.NetworkCredential("systemeksamensprojekt@gmail.com", "Gnusys1234");
                 SmtpServer.EnableSsl = true;
 
                 SmtpServer.Send(mail);
