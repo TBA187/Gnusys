@@ -192,6 +192,7 @@
     <Content Include="Views\Admin\ConnectDevice.cshtml" />
     <Content Include="Views\Admin\AddPatient.cshtml" />
     <Content Include="Views\Admin\ShowPatients.cshtml" />
+    <Content Include="Views\Patient\patients.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
