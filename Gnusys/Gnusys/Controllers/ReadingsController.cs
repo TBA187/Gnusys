@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -34,6 +35,8 @@ namespace Gnusys.Controllers
             r.DeviceLine.Add(dl);            
             DB.Readings.Add(r);
             DB.SaveChanges();
+            Helpers.AdvProg adv = new Helpers.AdvProg();
+            adv.CheckForSuddenDropOrRise(r, userid);
             return View();
         }
     }
