@@ -60,9 +60,18 @@
 
 <td class="auto-style11">Alle patienter</td>
 <td class="auto-style6">
-    <select name="DDLLevel" id="DDLLevel" class="text-box single-line" data-val="true" data-val-required="Niveauet skal vælges" style="height:24px;width:174px;">
+    <select name="PatientSelection" id="PatientSelection" class="text-box single-line" data-val="true" style="height:24px;width:174px;">
         <option></option>
-
+        @using (var db = new Gnusys.Models.GnysusEFModel())
+        {
+            foreach (var item in db.Patient)
+            {
+                if (item.ForName != null)
+                {
+                    <option value="@item.ID">@item.ForName @item.SurName</option>
+                }
+            }
+        }
     </select>
 </td>
 
