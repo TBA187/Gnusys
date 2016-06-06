@@ -14,6 +14,7 @@ namespace Gnusys.Controllers
         {
             return View();
         }
+
         // GET: Admin
         public ActionResult Index()
         {
@@ -34,8 +35,12 @@ namespace Gnusys.Controllers
 
         public ActionResult AddPatient()
         {
+            var Devices = DB.Set<Device>();
+            ViewBag.Devices = Devices.ToList();
             return View();
         }
+
+
 
         public ActionResult ShowPatients()
         {
@@ -51,6 +56,8 @@ namespace Gnusys.Controllers
             ViewBag.Patients = Patients.ToList();
             return View();
         }
+
+
         [HttpPost]
         public ActionResult ConnectDevice(string DeviceSelection, int PatientSelection)
         {
@@ -66,43 +73,61 @@ namespace Gnusys.Controllers
         }
         // POST: Admin/Create
         [HttpPost]
-        public ActionResult AddPatient(string Name, string SurName, string CPRno, string Password, string RPassword, string DDLLevel)
+        public ActionResult AddPatient(string Name, string SurName, string CPRno, string Password, string RPassword, string DDLLevel, string DeviceSelection)
         {
+
             if (Password == RPassword)
             {
-                try {
-                    string Hash = Password;
-                    if (DDLLevel == "Klinikker")
-                    {
-                        Employee E = new Employee { FirstName = Name, SurName = SurName, CPRno = int.Parse(CPRno), Password = Hash };
-                        DB.Employee.Add(E);
-                        DB.SaveChanges();
-                        Response.Write("<script>alert('Klinikeren er tilføjet');</script>");
-                        return View();
-                    }
-                    else if (DDLLevel == "Patient")
-                    {
-                        Patient P = new Patient { ForName = Name, SurName = SurName, CPRno = int.Parse(CPRno), Password = Hash };
-                        DB.Patient.Add(P);
-                        DB.SaveChanges();
-                        Response.Write("<script>alert('Patient er tilføjet');</script>");
-                        return View();
-                    }
-                    else
-                    {
-                        return View();
-                    }
-                }
-                catch
+                //try
+                //{
+                string Hash = Password;
+                if (DDLLevel == "Klinikker")
                 {
-                    Response.Write("<script>alert('Fejl, tjek om alle felter er udfyldt korrekt');</script>");
+                    Employee E = new Employee { FirstName = Name, SurName = SurName, CPRno = int.Parse(CPRno), Password = Hash };
+                    DB.Employee.Add(E);
+                    DB.SaveChanges();
+                    Response.Write("<script>alert('Klinikeren er tilføjet');</script>");
+                    return View();
                 }
+                else if (DDLLevel == "Patient")
+                {
+                    Patient P = new Patient { ForName = Name, SurName = SurName, CPRno = int.Parse(CPRno), Password = Hash };
+
+                    //Device getdevice = DB.Device.First(p => p.ID == DeviceSelection);
+                    //getdevice.PatientID = 123;
+                    //DB.Entry(getdevice).State = System.Data.Entity.EntityState.Modified;
+
+                    DB.Patient.Add(P);
+                    DB.SaveChanges();
+
+                    int newPersonID = P.ID;
+
+                    using (var context = new Gnusys.Models.GnysusEFModel())
+                    {
+                        context.Database.ExecuteSqlCommand("UPDATE Device SET PatientID = " + newPersonID + " WHERE ID = '" + DeviceSelection + "'");
+                    }
+
+
+                    Response.Write("<script>alert('Patient er tilføjet');</script>");
+                    return View();
+                }
+                else
+                {
+                    return View();
+                }
+                //}
+                //catch
+                //{
+                //    Response.Write("<script>alert('Fejl, tjek om alle felter er udfyldt korrekt');</script>");
+                //}
             }
             else
             {
                 return View();
             }
             return View();
+
+
 
         }
 
@@ -149,6 +174,7 @@ namespace Gnusys.Controllers
                 return View();
             }
         }
+
 
     }
 }
