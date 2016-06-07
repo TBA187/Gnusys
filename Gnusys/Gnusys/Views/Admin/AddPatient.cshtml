@@ -67,6 +67,7 @@
 
 
 <form name="AddPatient" method="post">
+    <input type="hidden" name="empID" value="@Session["ID"]" />
     <table>
         <tr>
             <td class="auto-style12">Fornavn</td>
@@ -132,19 +133,19 @@
             <td class="auto-style11">Device</td>
             <td class="auto-style6">
                 <select name="DeviceSelection" id="DeviceSelection" class="text-box single-line" data-val="true" data-val-required="Device skal vælges" style="height:24px;width:174px;">
-                        <option></option>
-                        @using (var db = new Gnusys.Models.GnysusEFModel())
+                    <option></option>
+                    @using (var db = new Gnusys.Models.GnysusEFModel())
+                    {
+                        foreach (var item in db.Device)
                         {
-                            foreach (var item in db.Device)
+                            if (item.PatientID == null)
                             {
-                                if (item.PatientID == null)
-                                {
-                                    <option value="@item.ID">@item.ID</option>
-                                }
+                                <option value="@item.ID">@item.ID</option>
                             }
                         }
-                    </select>
-</td>
+                    }
+                </select>
+            </td>
             <td class="auto-style2">
                 <span class="field-validation-valid text-danger" data-valmsg-for="DeviceSelection" data-valmsg-replace="true"></span>
             </td>

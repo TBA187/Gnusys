@@ -33,10 +33,9 @@ namespace Gnusys.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult AddPatient()
         {
-            var Devices = DB.Set<Device>();
-            ViewBag.Devices = Devices.ToList();
             return View();
         }
 
@@ -73,7 +72,7 @@ namespace Gnusys.Controllers
         }
         // POST: Admin/Create
         [HttpPost]
-        public ActionResult AddPatient(string Name, string SurName, string CPRno, string Password, string RPassword, string DDLLevel, string DeviceSelection)
+        public ActionResult AddPatient(string empID, string Name, string SurName, string CPRno, string Password, string RPassword, string DDLLevel, string DeviceSelection)
         {
 
             if (Password == RPassword)
@@ -104,8 +103,15 @@ namespace Gnusys.Controllers
 
                     using (var context = new Gnusys.Models.GnysusEFModel())
                     {
+                        context.Database.ExecuteSqlCommand("INSERT INTO EmployeePatients(EmployeeID, PatientID) VALUES(" + empID + ", " + newPersonID + ")");
+                    }
+
+                    using (var context = new Gnusys.Models.GnysusEFModel())
+                    {
                         context.Database.ExecuteSqlCommand("UPDATE Device SET PatientID = " + newPersonID + " WHERE ID = '" + DeviceSelection + "'");
                     }
+
+
 
 
                     Response.Write("<script>alert('Patient er tilføjet');</script>");
