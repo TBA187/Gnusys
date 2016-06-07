@@ -22,21 +22,21 @@ namespace Gnusys.Controllers
             return View();
         }
 
-        public ActionResult ShowPatients()
-        {
-            return View();
-        }
+        //public ActionResult ShowPatients()
+        //{
+        //    return View();
+        //}
 
-        public ActionResult ShowPatients(int id)
-        {
-            var GetReadings = (from a in DB.DeviceLine
-                               where a.PatientID == id
-                               join b in DB.Readings on a.ReadingID equals b.ID
-                               join c in DB.Patient on a.PatientID equals c.ID
-                               select new { b, c }).ToList();
+        //public ActionResult ShowPatients(int PatientSelection)
+        //{
+        //    var GetReadings = (from a in DB.DeviceLine
+        //                       where a.PatientID == PatientSelection
+        //                       join b in DB.Readings on a.ReadingID equals b.ID
+        //                       join c in DB.Patient on a.PatientID equals c.ID
+        //                       select new { b, c }).ToList();
 
-            ViewBag.ShowPatients = GetReadings;
-            return View();
-        }
+        //    ViewBag.ShowPatients = GetReadings;
+        //    return View();
+        //}
     }
 }

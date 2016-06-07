@@ -58,31 +58,33 @@
     }
 </style>
 
-<form>
+
     <td class="auto-style11">Alle patienter</td>
     <td class="auto-style6">
-        <select name="PatientSelection" id="PatientSelection" class="text-box single-line" data-val="true" style="height:24px;width:174px;">
-            <option></option>
-            @using (var db = new Gnusys.Models.GnysusEFModel())
+        <form method="post">
+            <select name="PatientSelection" id="PatientSelection" class="text-box single-line" data-val="true" style="height:24px;width:174px;">
+                <option></option>
+                @using (var db = new Gnusys.Models.GnysusEFModel())
             {
                 foreach (var item in db.Patient)
                 {
                     if (item.ForName != null)
                     {
-                        <option value="@item.ID">@item.ForName @item.SurName</option>
+                            <option value="@item.ID">@item.ForName @item.SurName</option>
+                        }
                     }
                 }
-            }
-        </select>
-        <input id="Submit1" name=ShowPatients" type="submit" value="Vælg patient" />
-    </td>
-</form>
+            </select>
+            <input id="Submit1" name="ShowPatients" type="submit" formmethod="post" value="Vælg patient" />
+        </form>
+</td>
 
-@if (ViewBag.ShowPatients != null)
+
+@if(ViewBag.ShowPatients != null)
 {
     foreach(var item in ViewBag.ShowPatients)
     {
-        @item.ForName @item.SurName @item.ID
+        <i>@item.OxygenSaturation   ---  @item.Pulse  ---  @item.Date</i><br />
     }
 }
 
