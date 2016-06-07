@@ -113,6 +113,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AndroidWebService.asmx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -128,9 +129,15 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Views\Admin\Login.aspx" />
     <Content Include="Views\Admin\Registrering.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AndroidWebService.asmx.cs">
+      <DependentUpon>AndroidWebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
@@ -179,8 +186,10 @@
     <Content Include="Views\Readings\Index.cshtml" />
     <Content Include="Views\Readings\Overview.cshtml" />
     <Content Include="Views\Admin\ConfirmRegistration.cshtml" />
+    <Content Include="Views\Admin\ConnectDevice.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>

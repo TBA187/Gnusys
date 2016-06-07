@@ -18,9 +18,12 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("Forside", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                @if (Session["user"] != null)
+                @if (Session["Type"] != null && Session["Type"].ToString() == "Employee")
                 {
                     @Html.ActionLink("Admin", "Index", "Admin", new { area = "" }, new { @class = "navbar-brand" })
+                }
+                @if (Session["ID"] != null)                {
+
                     @Html.ActionLink("Målinger", "Index", "Readings", new { area = "" }, new { @class = "navbar-brand" })
                 }
 
@@ -35,7 +38,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Eksamensprojekt 4 semester 2016</p><br />
+            <p>&copy;@DateTime.Now.DayOfWeek @DateTime.Now.Day / @DateTime.Now.Month / @DateTime.Now.Year - Eksamensprojekt 4 semester 2016</p><br />
             <p>Sadri, Messeh, Tina, og Stefan</p>
         </footer>
     </div>

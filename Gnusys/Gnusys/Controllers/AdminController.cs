@@ -31,7 +31,23 @@ namespace Gnusys.Controllers
         {
             return View();
         }
-
+        [HttpGet]
+        public ActionResult ConnectDevice()
+        {
+            var Devices = DB.Set<Device>();
+            var Patients = DB.Set<Patient>();
+            ViewBag.Devices = Devices.ToList();
+            ViewBag.Patients = Patients.ToList();
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ConnectDevice(string DeviceSelection, string PatientSelection)
+        {
+            Device d = new Device() { ID = DeviceSelection, PatientID = int.Parse(PatientSelection) };
+            DB.Device.Add(d);
+            DB.SaveChanges();            
+            return View();
+        }
         // POST: Admin/Create
         [HttpPost]
         public ActionResult Index(string Name, string SurName, string CPRno, string Password, string RPassword, string DDLLevel)
