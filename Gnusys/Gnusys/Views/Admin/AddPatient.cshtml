@@ -1,4 +1,9 @@
-﻿
+﻿@{
+    ViewBag.Title = "AddPatient";
+}
+
+
+
 <style type="text/css">
     .auto-style1 {
         width: 100%;
@@ -58,21 +63,12 @@
         text-align: right;
     }
 </style>
-<form method="post" action="">
-    <table>    
-        <tr>
-            <td class="auto-style3">
-                <input type="submit" formaction="@Url.Action("AddPatient", "Admin")" name="AddPatient" value="Opret patient" id="Back" style="width:105px;" />                
-            </td>
-            <td class="auto-style3">
-                <input type="submit" formaction="@Url.Action("ShowPatients", "Admin")" name="ShowPatients" value="Vis patienter" id="Back" style="width:105px;" />
-            </td>
-        </tr>
-    </table>
-</form>
 
-<!--<form method="post" action="">
-    <table class="auto-style1">
+
+
+<form name="AddPatient" method="post">
+    <input type="hidden" name="empID" value="@Session["ID"]" />
+    <table>
         <tr>
             <td class="auto-style12">Fornavn</td>
             <td class="auto-style5">
@@ -134,6 +130,27 @@
             </td>
         </tr>
         <tr>
+            <td class="auto-style11">Device</td>
+            <td class="auto-style6">
+                <select name="DeviceSelection" id="DeviceSelection" class="text-box single-line" data-val="true" data-val-required="Device skal vælges" style="height:24px;width:174px;">
+                    <option></option>
+                    @using (var db = new Gnusys.Models.GnysusEFModel())
+                    {
+                        foreach (var item in db.Device)
+                        {
+                            if (item.PatientID == null)
+                            {
+                                <option value="@item.ID">@item.ID</option>
+                            }
+                        }
+                    }
+                </select>
+            </td>
+            <td class="auto-style2">
+                <span class="field-validation-valid text-danger" data-valmsg-for="DeviceSelection" data-valmsg-replace="true"></span>
+            </td>
+        </tr>
+        <tr>
             <td class="auto-style4">&nbsp;</td>
             <td class="auto-style6">&nbsp;</td>
             <td class="auto-style2">&nbsp;</td>
@@ -154,7 +171,4 @@
 
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>-->
-
-
-
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

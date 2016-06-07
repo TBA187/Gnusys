@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "TestingView";
+}
+
+<h2>TestingView</h2>
+<h5>ID - Pulse - OxygenSaturation - Date </h5>
+@foreach(var item in ViewBag.testing)
+{
+    <u>@item.ID - @item.Pulse - @item.OxygenSaturation - @item.Date</u><br />
+}
+
