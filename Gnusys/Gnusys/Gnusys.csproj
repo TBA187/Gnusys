@@ -142,14 +142,6 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="atemp\Device.cs" />
-    <Compile Include="atemp\DeviceHistory.cs" />
-    <Compile Include="atemp\DeviceLine.cs" />
-    <Compile Include="atemp\Employee.cs" />
-    <Compile Include="atemp\EmployeePatients.cs" />
-    <Compile Include="atemp\GnysusEFModel.cs" />
-    <Compile Include="atemp\Patient.cs" />
-    <Compile Include="Models\Readings.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
@@ -165,7 +157,7 @@
     <Compile Include="Models\EmployeePatients.cs" />
     <Compile Include="Models\GnysusEFModel.cs" />
     <Compile Include="Models\Patient.cs" />
-    <Compile Include="Scripts\Readings.cs" />
+    <Compile Include="Models\Readings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Admin\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -212,7 +204,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="btemp\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

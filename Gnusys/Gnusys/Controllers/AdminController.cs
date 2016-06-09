@@ -41,10 +41,6 @@ namespace Gnusys.Controllers
 
 
 
-        public ActionResult ShowPatients()
-        {
-            return View();
-        }
 
         [HttpGet]
         public ActionResult ConnectDevice()
@@ -131,7 +127,7 @@ namespace Gnusys.Controllers
             {
                 return View();
             }
-            return View();
+            //return View();
 
 
 
@@ -180,7 +176,26 @@ namespace Gnusys.Controllers
                 return View();
             }
         }
-
+        [HttpGet]
+        public ActionResult ShowPatients()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ShowPatients(int PatientSelection)
+        {
+            var GetReadings = (from a in DB.DeviceLine
+                               where a.PatientID == PatientSelection
+                               join b in DB.Readings on a.ReadingID equals b.ID
+                               join c in DB.Patient on a.PatientID equals c.ID
+                               select b );
+            ViewBag.ShowReadings = GetReadings.ToList();
+            return View();
+        }
+        public ActionResult ConfirmRegistration()
+        {
+            return View();
+        }
 
     }
 }
