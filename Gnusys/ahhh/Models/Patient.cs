@@ -6,23 +6,30 @@ namespace ahhh.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Readings
+    [Table("Patient")]
+    public partial class Patient
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Readings()
+        public Patient()
         {
+            Device = new HashSet<Device>();
             DeviceLine = new HashSet<DeviceLine>();
         }
 
-        public int Pulse { get; set; }
-
-        public int OxygenSaturation { get; set; }
-
-        public DateTime Date { get; set; }
-
         public int ID { get; set; }
 
-        public int Score { get; set; }
+        [Required]
+        public string ForName { get; set; }
+
+        public string SurName { get; set; }
+
+        public int CPRno { get; set; }
+
+        [Required]
+        public string Password { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Device> Device { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DeviceLine> DeviceLine { get; set; }

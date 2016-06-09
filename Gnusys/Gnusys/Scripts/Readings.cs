@@ -1,4 +1,4 @@
-namespace ahhh.Models
+namespace Gnusys.Models
 {
     using System;
     using System.Collections.Generic;
@@ -21,7 +21,6 @@ namespace ahhh.Models
         public DateTime Date { get; set; }
 
         public int ID { get; set; }
-
         public int Score { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
