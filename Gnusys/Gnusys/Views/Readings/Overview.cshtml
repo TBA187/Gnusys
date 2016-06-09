@@ -1,7 +1,35 @@
-﻿
+﻿@model IEnumerable<Gnusys.Models.Patient>
+
 @{
     ViewBag.Title = "Overview";
 }
 
-<h2>Overview</h2>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ForName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SurName)
+        </th>
+    </tr>
 
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ForName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SurName)
+            </td>
+        </tr>
+    }
+</table>
