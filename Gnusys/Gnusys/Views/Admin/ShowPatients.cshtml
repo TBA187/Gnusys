@@ -79,14 +79,41 @@
         </form>
 </td>
 
+<div class="container">
+    <div class="row">
+        <p class="col-md-4"><u>Iltmætning</u></p>
+        <p class="col-md-4"><u>Pulse</u></p>
+        <p class="col-md-4"><u>Dato</u></p>
+    </div>
+</div>
 
-@if(ViewBag.ShowPatients != null)
-{
-    foreach(var item in ViewBag.ShowPatients)
+    @if (ViewBag.ShowPatients != null)
     {
-        <i>@item.OxygenSaturation   ---  @item.Pulse  ---  @item.Date</i><br />
+        foreach (var item in ViewBag.ShowPatients)
+        {
+            <div class="container">
+                <div class="row">
+                    <p class="col-md-4"><u>@item.b.OxygenSaturation</u></p>
+                    <p class="col-md-4"><u>@item.b.Pulse</u></p>
+                    <p class="col-md-4"><u>@item.b.Date</u></p>
+                </div>
+            </div>
+        }
     }
-}
+
+<div>
+    @if (ViewBag.ShowPatients != null)
+    {
+        foreach (var item in ViewBag.ShowPatients)
+        {
+            <p>@item.b.OxygenSaturation  @item.b.Pulse @item.b.Date;</p>
+
+        }
+    }
+
+
+</div>
+
 
 
 

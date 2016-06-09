@@ -188,12 +188,14 @@ namespace Gnusys.Controllers
                                where a.PatientID == PatientSelection
                                join b in DB.Readings on a.ReadingID equals b.ID
                                join c in DB.Patient on a.PatientID equals c.ID
-                               select b);
-
-            ViewBag.ShowPatients = GetReadings.ToList();
+                               select b );
+            ViewBag.ShowReadings = GetReadings.ToList();
             return View();
         }
-
+        public ActionResult ConfirmRegistration()
+        {
+            return View();
+        }
 
     }
 }
