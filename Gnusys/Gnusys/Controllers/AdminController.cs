@@ -75,10 +75,12 @@ namespace Gnusys.Controllers
             {
                 //try
                 //{
-                string Hash = Password;
+               
+
                 if (DDLLevel == "Klinikker")
                 {
-                    Employee E = new Employee { FirstName = Name, SurName = SurName, CPRno = int.Parse(CPRno), Password = Hash };
+                    string Hash = HomeController.HashPassword(Password);
+                    Employee E = new Employee { FirstName = Name, SurName = SurName, CPRno = int.Parse(CPRno), Password = Hash.ToString() };
                     DB.Employee.Add(E);
                     DB.SaveChanges();
                     Response.Write("<script>alert('Klinikeren er tilføjet');</script>");
@@ -86,7 +88,8 @@ namespace Gnusys.Controllers
                 }
                 else if (DDLLevel == "Patient")
                 {
-                    Patient P = new Patient { ForName = Name, SurName = SurName, CPRno = int.Parse(CPRno), Password = Hash };
+                    string Hash = HomeController.HashPassword(Password);
+                    Patient P = new Patient { ForName = Name, SurName = SurName, CPRno = int.Parse(CPRno), Password = Hash.ToString() };
 
                     //Device getdevice = DB.Device.First(p => p.ID == DeviceSelection);
                     //getdevice.PatientID = 123;
