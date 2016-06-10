@@ -1,4 +1,5 @@
-﻿<style type="text/css">
+﻿@model IEnumerable<Gnusys.Models.Readings>
+<style type="text/css">
     .auto-style1 {
         width: 100%;
     }
@@ -63,7 +64,7 @@
     <td class="auto-style6">
         <form method="post">
             <select name="PatientSelection" id="PatientSelection" class="text-box single-line" data-val="true" style="height:24px;width:174px;">
-                <option></option>
+                
                 @using (var db = new Gnusys.Models.GnysusEFModel())
             {
                 foreach (var item in db.Patient)
@@ -79,14 +80,43 @@
         </form>
 </td>
 
+<div class="container">
+    <div class="row">
+        <p class="col-md-4"><u>Iltmætning</u></p>
+        <p class="col-md-4"><u>Pulse</u></p>
+        <p class="col-md-4"><u>Dato</u></p>
+    </div>
+</div>
 
-@if(ViewBag.ShowPatients != null)
-{
-    foreach(var item in ViewBag.ShowPatients)
+    @if (Model != null)
     {
-        <i>Dato: @item.Date --- Iltmætning: @item.OxygenSaturation --- Pulse: @item.Pulse</i><br />
+        foreach (var item in Model)
+        {
+            <div class="container">
+                <div class="row">
+                    <p class="col-md-4"><u>@item.OxygenSaturation</u></p>
+                    <p class="col-md-4"><u>@item.Pulse</u></p>
+                    <p class="col-md-4"><u>@item.Date</u></p>
+                </div>
+            </div>
+        }
     }
-}
+
+<div>
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <p>iltmåling:  @item.OxygenSaturation </p>
+            <p>pulse: @item.Pulse</p>
+            <p>Dato: @item.Date</p>
+
+        }
+    }
+
+
+</div>
+
 
 
 

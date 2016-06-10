@@ -188,15 +188,17 @@ namespace Gnusys.Controllers
         public ActionResult ShowPatients(int PatientSelection)
         {
             var GetReadings = (from a in DB.DeviceLine
-                               where a.PatientID == PatientSelection
-                               join b in DB.Readings on a.ReadingID equals b.ID
-                               join c in DB.Patient on a.PatientID equals c.ID
-                               select b);
-
-            ViewBag.ShowPatients = GetReadings.ToList();
+                             where a.PatientID == PatientSelection
+                             join b in DB.Readings on a.ReadingID equals b.ID
+                            join c in DB.Patient on a.PatientID equals c.ID
+                            select b ); 
+          //  ViewBag.ShowReadings = GetReadings.ToList();
+            return View(GetReadings.ToList());
+        }
+        public ActionResult ConfirmRegistration()
+        {
             return View();
         }
-
 
     }
 }
