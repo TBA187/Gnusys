@@ -33,14 +33,16 @@ namespace Gnusys.Controllers
         [HttpPost]
         public ActionResult Index(int cpr, string password)
         {
-            string Hash = HashPassword(password);
+            //string Hash = HashPassword(password);
 
-            VerifyHashedPassword(Hash, password);
-            //  string Hash = HashPassword(password);
+            //VerifyHashedPassword(Hash, password);
+           string Hash = password;
 
-            var  Patientlogin = DB.Patient.FirstOrDefault(p => p.CPRno == cpr && p.Password == Hash.ToString());
+            
 
-              var  Employeelogin = DB.Employee.FirstOrDefault(p => p.CPRno == cpr && p.Password == Hash.ToString());
+            var  Patientlogin = DB.Patient.FirstOrDefault(p => p.CPRno == cpr && p.Password == Hash);
+
+              var  Employeelogin = DB.Employee.FirstOrDefault(p => p.CPRno == cpr && p.Password == Hash);
 
           
             if (Patientlogin != null)

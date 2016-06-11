@@ -27,13 +27,15 @@ namespace Gnusys.Controllers
         [HttpPost]
         public ActionResult AddReadings(int OxygenSaturation_input, int Pulse_input)
         {
-            int userid = int.Parse(Session["User"].ToString());
+            int userid = int.Parse(Session["ID"].ToString());
             Device d = DB.Device.FirstOrDefault(p => p.PatientID == userid);
             DeviceLine dl = new DeviceLine() { PatientID = userid, DeviceID = d.ID };
             Readings r = new Readings() { Pulse = Pulse_input, OxygenSaturation = OxygenSaturation_input, Date = DateTime.Now};
             r.DeviceLine.Add(dl);            
             DB.Readings.Add(r);
             DB.SaveChanges();
+            Helpers.AdvProg adv = new Helpers.AdvProg();
+            adv.CheckForSuddenDropOrRise(r, userid);
             return View();
         }
     }
