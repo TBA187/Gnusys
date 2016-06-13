@@ -5,20 +5,19 @@
 
 <h2>Manuel indtastning</h2>
 
-<form name="ManuelIndtast" method="post" >
+<form name="ManuelIndtast" method="post">
+    <input type="hidden" name="PatientID" value="@Session["ID"]" />
     <table>
         <tr>
             <td> <label for="OxygenSaturation">Iltmætning: </label></td>
             <td><input name="OxygenSaturation_input" /></td>
         </tr>
         <tr>
-            <td>  <label for="Pulse">Puls: </label>          </td>
-            <td>   <input name="Pulse_input" /> </td>
+            <td><label for="Pulse">Puls: </label></td>
+            <td><input name="Pulse_input" /></td>
         </tr>
-        <tr><td><input name="AddReadings" formmethod="post" type="submit"/></td></tr>
+        <tr>
+            <td colspan="2"><input name="AddReadings" formmethod="post" type="submit" /></td>
+        </tr>
     </table>
-
-
-
 </form>
-
