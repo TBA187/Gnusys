@@ -55,8 +55,11 @@ namespace Gnusys
             r.DeviceLine.Add(dl);
             DB.Readings.Add(r);
             DB.SaveChanges();
-            
-        
+
+            //tjek om måling er megetafvigende:
+            Helpers.AdvProg adv = new Helpers.AdvProg();
+            adv.CheckForSuddenDropOrRise(r, cpr);
+
             return "ok";
         }
 
